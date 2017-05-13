@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<cadastro>
+	<cod />
+	<responsavel />
+	<rg>
+		<numero />
+		<orgao_emissor />
+		<data_emissao />
+		<uf />
+	</rg>
+	<carteira_trabalho>
+		<numero />
+		<serie />
+		<pis />
+	</carteira_trabalho>
+	<cpf />
+	<nascimento />
+	<telefone />
+	<renda />
+	<escolaridade />
+	<profissao />
+	
+	<moradia>
+		<endereco />
+		<numero />
+		<bairro />
+		<ponto_referencia />
+		<tipo_residencia />
+		<situacao_moradia />
+		<numero_comodo />
+		<quantos_vivem />
+		<banheiro />
+		<tempo_comunidade />
+		<municipio />
+		<abastecimento_agua />
+		<energia_eletrica />
+		<esgoto_sanitario />
+	</moradia>
+	
+	<beneficio>
+		<bolsa_familia>
+			<cond />
+			<valor />
+		</bolsa_familia>
+		<cad_unico>
+			<cond />
+		</cad_unico>
+		<fome_zero>
+			<cond />
+		</fome_zero>
+		<bpc>
+			<cond />
+			<quantidade />
+		</bpc>
+		<aposentado>
+			<cond />
+			<quantidade />
+		</aposentado>
+	</beneficio>
+	
+	<familia>
+		<municipio_procedente />
+		<uf_procedente />
+		<gestante>
+			<cond />
+			<acompanhamento />
+		</gestante>
+		<hipertenso>
+			<cond />
+			<acompanhamento />
+		</hipertenso>
+		<diabetico>
+			<cond />
+			<acompanhamento />
+		</diabetico>
+		<esf>
+			<cond />
+		</esf>
+		<deficiente>
+			<cond />
+			<quantidade/>
+		</deficiente>			
+	</familia>
+	
+	<dependentes>
+		<dependente>
+			<nome />
+			<dt_nasc />
+			<idade />
+			<parentesco />
+			<escolaridade />
+			<ocupacao />
+			<renda />
+			<obs />
+		</dependente>		
+	</dependentes>
+	<prontuario>
+		<atendimento>
+			<data />
+			<observacao />
+		</atendimento>
+	</prontuario>
+	<agente_social />
+	<data_criacao />
+	<data_atualizacao />	
+	<observacao />
+</cadastro>
