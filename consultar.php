@@ -4,20 +4,20 @@
 ?>
 <div class="corpo">
 	<h3 class="uk-margin uk-heading-line"><span>Consultar</span></h3>
-	
+
 	<form class="uk-grid-small" action="consultar.php" method="post" uk-grid>
-		
+
 		<div class="uk-width-3-4@s">
 			<p class="uk-text-small uk-margin-remove">Responsável:</p>
 			<input class="uk-input uk-form-small" type="text" name="responsavel">
 		</div>
-		
+
 		<div class="uk-width-1-4@s">
 			<p class="uk-text-small uk-margin-remove">Código:</p>
 			<input class="uk-input uk-form-small" type="text" name="codigo">
 		</div>
-		
-		
+
+
 		<div class="uk-width-1-4@s">
 			<p class="uk-text-small uk-margin-remove">CPF:</p>
 			<input type="text" class="uk-input uk-form-small mask_cpf" name="cpf">
@@ -34,12 +34,12 @@
 			<p class="uk-text-small uk-margin-remove">Data de Nascimento:</p>
 			<input class="uk-input uk-form-small mask_data" type="text" placeholder="DD/MM/AAAA" name="nasc">
 		</div>
-		
-		
+
+
 		<div class="uk-width-1-2@s">
 			<p class="uk-text-small uk-margin-remove">Endereço:</p>
 			<input type="text" class="auto_endereco uk-input uk-form-small" name="end" >
-		</div>	
+		</div>
 		<div class="uk-width-1-4@s">
 			<p class="uk-text-small uk-margin-remove">Número:</p>
 			<input class="uk-input uk-form-small" type="text" name="numero">
@@ -48,21 +48,21 @@
 			<p class="uk-text-small uk-margin-remove">Bairro:</p>
 			<input type="text" class="auto_bairro uk-input uk-form-small" name="end_bairro" name="bairro">
 		</div>
-		
-		
+
+
 		<div class="uk-width-1-4@s">
 			<input class="uk-button uk-button-default uk-width-1-1" type="reset" value="LIMPAR CAMPOS"/>
-		</div>	
+		</div>
 		<div class="uk-width-1-2@s"></div>
 		<div class="uk-width-1-4@s">
 			<input type="hidden" name="acao" value="consulta"/>
 			<input class="uk-button uk-button-secondary uk-width-1-1" type="submit" value="PESQUISAR"/>
 		</div>
-		
+
 	</form>
 	<?php
 		if(@$_POST['acao'] == "consulta"){
-			
+
 			if(isset($_POST['responsavel'][0])){
 				$nome = "*".amigavel($_POST['responsavel'])."*";
 				foreach(glob("./root/*/".$nome.".nome") as $aux){
@@ -126,14 +126,12 @@
 					$linhas[$aux[2]] = $aux[2];
 				}
 			}
-			
+    }
+
 	?>
-		<?php
-			if(count(@$linhas) == 0){
-		?><pre>Não foram escontrados resultados</pre>
-		<?
-			}else{				
-	?>
+		<?php if(count(@$linhas) == 0): ?>
+			<pre>Não foram escontrados resultados</pre>
+		<?php else: ?>
 	<table class="uk-table  uk-table-hover uk-table-striped">
 		<thead>
 			<tr>
@@ -144,9 +142,8 @@
 			</tr>
 		</thead>
 		<tbody>
-		<?php
-		foreach($linhas as $linha){
-			$dados = buscar_dados($linha);
+		<?php foreach($linhas as $linha):
+      $dados = buscar_dados($linha);
 		?>
 			<tr>
 				<td nowrap="nowrap" width="0" ><?=$dados['cod']?></td>
@@ -156,16 +153,10 @@
 				<td nowrap="nowrap"><?=$dados['cpf']?></td>
 				<td nowrap="nowrap"><?=$dados['nasc']?></td>
 			</tr>
-		<?php
-		}
-		?>
+		<?php endforeach ?>
 		</tbody>
 	</table>
-	<?
-			}
-		}
-	?>
+	<?php endif ?>
 </div>
-<?php
-	include('footer.php');
-?>
+
+<?php include 'footer.php' ?>
